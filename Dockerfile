@@ -1,6 +1,9 @@
+FROM jrottenberg/ffmpeg:3.3-alpine
 from node:13.8
 
 CMD apt update && apt upgrade -y && apt install build-essential git -y
+
+COPY --from=0 / /
 
 RUN useradd -ms /bin/bash syncuser
 
